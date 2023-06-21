@@ -9,15 +9,16 @@ import { StatusBar } from 'react-native';
 
 export default function App() {
 
-  SplashScreen.preventAutoHideAsync()
 
+  
   const [fontsLoaded] = useFonts({
     Roboto_400Regular,
     Roboto_700Bold,
   })
-
+  SplashScreen.preventAutoHideAsync()
+  
   if (fontsLoaded) {
-    setTimeout(SplashScreen.hideAsync, 2000)
+    setTimeout(SplashScreen.hideAsync, 400)
     return (
       <>
         <StatusBar barStyle={'light-content'} />
@@ -25,5 +26,6 @@ export default function App() {
       </>
     );
   }
+  
 }
 

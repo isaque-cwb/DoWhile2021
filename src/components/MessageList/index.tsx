@@ -3,6 +3,8 @@ import React from 'react'
 import { styles } from './styles'
 
 import { Message } from '../Message'
+import { COLORS } from '../../theme'
+import { Button } from '../Button'
 
 export function MessageList() {
 
@@ -22,16 +24,13 @@ export function MessageList() {
             contentContainerStyle={styles.content}
             keyboardShouldPersistTaps='never'
         >
-            <Message  data={message} />
-            <Message  data={message} />
-            <Message  data={message} />
-            <Message  data={message} />
-            <Message  data={message} />
-            <Message  data={message} />
-            <Message  data={message} />
-            <Message  data={message} />
-            <Message  data={message} />
+            <Message data={message} />
+            <Message data={message} />
+            <Message data={message} />
+            <Message data={message} />
            
+
+
         </ScrollView>
     )
 }
