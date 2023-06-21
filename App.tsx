@@ -5,20 +5,25 @@ import {
   Roboto_700Bold
 } from '@expo-google-fonts/roboto'
 import * as SplashScreen from 'expo-splash-screen';
+import { StatusBar } from 'react-native';
 
 export default function App() {
 
-  
+  SplashScreen.preventAutoHideAsync()
 
   const [fontsLoaded] = useFonts({
     Roboto_400Regular,
-    Roboto_700Bold
+    Roboto_700Bold,
   })
 
-  !fontsLoaded ? SplashScreen.preventAutoHideAsync() : setTimeout(SplashScreen.hideAsync, 3000)
-
-  return (
-    <Home />
-  );
+  if (fontsLoaded) {
+    setTimeout(SplashScreen.hideAsync, 2000)
+    return (
+      <>
+        <StatusBar barStyle={'light-content'} />
+        <Home />
+      </>
+    );
+  }
 }
 
