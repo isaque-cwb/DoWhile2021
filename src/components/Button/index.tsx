@@ -1,24 +1,37 @@
-import { View, Text, TouchableOpacity, TouchableOpacityProps, ColorValue } from 'react-native'
+import { View, Text, TouchableOpacity, TouchableOpacityProps, ColorValue, ActivityIndicator } from 'react-native'
 import React from 'react'
 import { styles } from './styles'
+import { AntDesign } from '@expo/vector-icons'
 
-type Props = TouchableOpacityProps &{
-    title: string,
-    color: ColorValue,
-    backgroundColor: ColorValue
+type Props = TouchableOpacityProps & {
+    title: string;
+    color: ColorValue;
+    backgroundColor: ColorValue;
+    icon?: React.ComponentProps<typeof AntDesign>['name'];
+    isLoading?: boolean;
 }
 
-export function Button({ title, color, backgroundColor, ...rest }: Props) {
+export function Button({ title, color, backgroundColor, icon, isLoading = false, ...rest }: Props) {
     return (
-        <TouchableOpacity 
-        style={[styles.container, { backgroundColor }]}
-        {...rest}
+        <TouchableOpacity
+            style={[styles.button, { backgroundColor }]}
+            activeOpacity={0.7}
+            disabled={isLoading}
+            {...rest}
         >
-            <Text
-            style={[styles.title, {color}]}
-            >
-                {title}
-            </Text>
+          { isLoading ? <ActivityIndicator color={color} /> :
+            <>
+                <AntDesign
+                    name={icon}
+                    size={24}
+                    style={styles.icon}
+                />
+                <Text
+                    style={[styles.title, { color }]}
+                >
+                    {title}
+                </Text>
+            </>}
         </TouchableOpacity>
     )
 }
