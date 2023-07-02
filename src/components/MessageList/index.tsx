@@ -19,6 +19,7 @@ export function MessageList() {
     }
 
     return (
+
         <ScrollView
             style={styles.container}
             contentContainerStyle={styles.content}
@@ -28,7 +29,7 @@ export function MessageList() {
             <Message data={message} />
             <Message data={message} />
             <Message data={message} />
-           
+
 
 
         </ScrollView>

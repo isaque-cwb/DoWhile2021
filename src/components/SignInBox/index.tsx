@@ -12,7 +12,6 @@ export function SignInBox() {
                 color={COLORS.BLACK_SECONDARY}
                 backgroundColor={COLORS.YELLOW}
                 icon='github'
-                
             />
         </View>
     )
