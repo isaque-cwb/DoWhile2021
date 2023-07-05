@@ -8,7 +8,6 @@ export const styles = StyleSheet.create({
         width: '100%',
         height: 90,
         backgroundColor: COLORS.BLACK_TERTIARY,
-        paddingBottom: getBottomSpace() + 16,
         paddingTop: 16,
         paddingHorizontal: 24,
 
@@ -23,8 +22,7 @@ export const styles = StyleSheet.create({
         width: '100%',
         height: 90,
         backgroundColor: COLORS.BLACK_TERTIARY,
-        paddingBottom: getBottomSpace() + 16,
-        paddingTop: 16,
+        paddingTop: 10,
         paddingHorizontal: 24,
     }
 })

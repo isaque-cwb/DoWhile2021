@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react'
 import * as AuthSessions from 'expo-auth-session'
 import { api } from '../services/api'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { Alert } from 'react-native'
 
 const CLIENT_ID = 'a6183d247676709ef134'
 const SCOPE = 'read:user'
@@ -63,11 +64,11 @@ function AuthProvider({ children }: AuthProviderProps) {
                 const { user, token } = authResponse.data as AuthResponse
                 api.defaults.headers.common['Authorization'] = `Bearer ${token}`
                 await AsyncStorage.setItem(USER_STORAGE, JSON.stringify(user))
-                await AsyncStorage.setItem(TOKEN_STORAGE, JSON.stringify(token))
+                await AsyncStorage.setItem(TOKEN_STORAGE, token)
                 setUser(user)
             }
-        } catch (error) {
-            console.log(error)
+        } catch (error: any) {
+            Alert.alert('Não Foi Possível Fazer Login', error.message)
         } finally {
             setIsSigningIng(false)
         }
